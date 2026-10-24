@@ -52,7 +52,6 @@ imports `tokens/tokens.css`.
 ## Not here yet
 
 - Maps of Making's own welcome page and words for the pods (`pods/welcome/`).
-- The backoffice's `instance.json` and override: waits for its image.
 - Bernard's illustrations stay in the map's repo (`web/mothersands/`) until a
   second surface uses them.
 - Special Elite's licence file (Apache 2.0, Google Fonts) beside its woff2.
