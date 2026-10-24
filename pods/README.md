@@ -1,12 +1,15 @@
 # pods — what /srv/mom-pods mounts
 
-The files solid-css-overlay's `overlay-template/overlay/README.md` lists
-(`skin.css` from `../skins/kit/`, fonts, `welcome/index.html`,
-`instance.json`), and the `compose.override.yml` that mounts them. In
+`compose.override.yml` mounts `../skins/kit/skin.css` and `../tokens/fonts/`
+over the image's generic "pod" skin. In
 `/srv/mom-pods/instance-template/.env`:
 
 ```sh
 COMPOSE_FILE=compose.yml:/srv/mom-design-system/pods/compose.override.yml
+DESIGN_DIR=/srv/mom-design-system
 ```
 
-Empty until the kit skin exists: the pods run the image's generic skin.
+Not here yet: `welcome/index.html` (Maps of Making's own welcome page) and
+`instance.json` (more reserved pod names), each with its line in the
+override. The files solid-css-overlay lets an instance replace:
+`overlay-template/overlay/README.md` there.

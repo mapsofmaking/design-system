@@ -51,10 +51,8 @@ imports `tokens/tokens.css`.
 
 ## Not here yet
 
-- `skins/kit/skin.css`: the mapping. Riso paper only (no dark theme); how
-  the kit's dark and contrast themes are filled is settled with it.
-- The fonts other than Special Elite (Inter Tight, JetBrains Mono, Caveat)
-  are loaded from Google Fonts by `components.css`; the pods and the backoffice
-  self-host theirs, so they come here as woff2 with their licences.
+- Maps of Making's own welcome page and words for the pods (`pods/welcome/`).
+- The backoffice's `instance.json` and override: waits for its image.
 - Bernard's illustrations stay in the map's repo (`web/mothersands/`) until a
   second surface uses them.
+- Special Elite's licence file (Apache 2.0, Google Fonts) beside its woff2.

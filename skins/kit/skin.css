@@ -1,0 +1,133 @@
+/*
+ * skin.css — Maps of Making on solid-kit's slots.
+ *
+ * The one file every image built on the kit reads: the pod server's pages
+ * (solid-css-overlay, served at /.well-known/css/styles/skin.css) and the
+ * backoffice (/skin.css). Every value is a token of ../../tokens/, by name in
+ * the comment; change it there first, then here. Values are hex because
+ * solid-kit's audit reads hex and rgb only: the oklch tokens are converted.
+ * Check: in solid-kit, `npm run audit -- --skin <this file>`.
+ *
+ * Fonts: ../../tokens/fonts/, mounted by each image at fonts/skin/ beside its
+ * styles folder (the overlay: /.well-known/css/fonts/skin/; the backoffice:
+ * /fonts/skin/). The relative url below resolves to both.
+ *
+ * What stays out on purpose:
+ * - every `state-*` token, `green` and `yellow`'s dot: they say how alive a
+ *   space is, and nothing on these pages means that;
+ * - `accent` (riso red, 3.6:1) and `accent-2` (cobalt, 4.3:1) as text: both
+ *   are under 4.5:1 on paper. Links and primary actions are ink, as the map's
+ *   own primary buttons are; errors use `accent-ink`;
+ * - the hard offset `shadow` and the `hand` face for anything but titles: no
+ *   kit slot carries them. A vertical asks for a slot (ADR 011), it does not
+ *   override a component.
+ *
+ * Themes: riso paper only (decided 2026-10-13). The kit's theme button still
+ * offers Dark, so the dark block repeats Daylight and "Dark" stays honest
+ * (the overlay's skin contract). Depth, MoM's dark surface, is in tokens/ but
+ * has not shipped in any chrome yet; mapping it here is a later choice.
+ * High contrast is filled from the same paper and ink at 7:1.
+ */
+
+/* ---- Fonts: self-hosted, Latin subset (tokens/fonts/, OFL) ---- */
+@font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/skin/inter-tight-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/skin/inter-tight-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/skin/inter-tight-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/skin/jetbrains-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/skin/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }
+/* `hand`: titles only, never long text (tokens: hand-title, hand-hero). */
+@font-face { font-family: Caveat; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/skin/caveat-latin-700-normal.woff2") format("woff2"); }
+
+:root {
+  /* The kit's display face is for titles and the pull line only: MoM's hand. */
+  --font-display: Caveat, cursive;
+  --font-heading: "Inter Tight", system-ui, sans-serif;
+  --font-body: "Inter Tight", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  /* Corners are square: `radius` (2px) is the only corner in the chrome. */
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  /* `stroke-rule`: every box and control. */
+  --border-width: 1.5px;
+}
+
+/* ---- Daylight (default): MoM's paper ---- */
+:root {
+  --surface: #f7f2e7;          /* paper */
+  --surface-elevated: #faf6ea; /* drawer-bg */
+  --surface-recessed: #efe9d9; /* paper-2 */
+  --text-primary: #1a1a1a;     /* ink: 15.6:1 on paper */
+  --text-secondary: #2a2a2a;   /* ink-soft: 12.9:1 */
+  /* muted: 5.3:1 on paper, 5.5:1 on drawer-bg, 4.9:1 on paper-2. The one to
+     re-check if replaced. */
+  --text-tertiary: #6a6357;
+  --border: #2a2a2a;           /* rule: riso boxes are hard ink lines */
+  --border-subtle: #bfb7a4;    /* faint: decorative only */
+  --border-control: #2a2a2a;   /* rule */
+  --selection: rgba(0, 115, 207, 0.18); /* accent-2 (cobalt) as a wash */
+  --accent: #1a1a1a;           /* ink: links, primary, focus */
+  --accent-contrast: #f7f2e7;  /* paper on ink, 15.6:1 */
+  --accent-soft: #efe9d9;      /* paper-2 */
+  --accent-line: #2a2a2a;      /* rule */
+  /* Warnings are the map's yellow note: ink on a yellow wash. */
+  --warn: #2a2a2a;             /* ink-soft */
+  --warn-soft: #f3e3b3;        /* yellow 30% over paper (the map's .note) */
+  --warn-line: #2a2a2a;        /* rule */
+  --danger: #b32228;           /* accent-ink: 5.9:1 on paper */
+  --danger-soft: rgba(222, 78, 75, 0.08); /* accent as a wash, as the map's broken badge */
+  --code-bg: #efe9d9;          /* paper-2: inline code ground */
+  color-scheme: light;
+}
+
+/* ---- Dark: the same paper (riso paper only, see the header) ---- */
+:root[data-theme="dark"] {
+  --surface: #f7f2e7;
+  --surface-elevated: #faf6ea;
+  --surface-recessed: #efe9d9;
+  --text-primary: #1a1a1a;
+  --text-secondary: #2a2a2a;
+  --text-tertiary: #6a6357;
+  --border: #2a2a2a;
+  --border-subtle: #bfb7a4;
+  --border-control: #2a2a2a;
+  --selection: rgba(0, 115, 207, 0.18);
+  --accent: #1a1a1a;
+  --accent-contrast: #f7f2e7;
+  --accent-soft: #efe9d9;
+  --accent-line: #2a2a2a;
+  --warn: #2a2a2a;
+  --warn-soft: #f3e3b3;
+  --warn-line: #2a2a2a;
+  --danger: #b32228;
+  --danger-soft: rgba(222, 78, 75, 0.08);
+  --code-bg: #efe9d9;
+  color-scheme: light;
+}
+
+/* ---- High contrast: text 7:1 or more, every line 3:1 or more ---- */
+:root[data-theme="contrast"] {
+  --surface: #f7f2e7;          /* paper */
+  --surface-elevated: #ffffff; /* surface-white */
+  --surface-recessed: #efe9d9; /* paper-2 */
+  --text-primary: #1a1a1a;     /* ink */
+  --text-secondary: #1a1a1a;   /* ink */
+  --text-tertiary: #2a2a2a;    /* ink-soft: 11.8:1 on paper-2 */
+  --border: #2a2a2a;
+  --border-subtle: #2a2a2a;
+  --border-control: #1a1a1a;
+  --selection: rgba(0, 115, 207, 0.3);
+  --accent: #1a1a1a;
+  --accent-contrast: #ffffff;
+  --accent-soft: #efe9d9;
+  --accent-line: #1a1a1a;
+  --warn: #1a1a1a;
+  --warn-soft: #f3e3b3;
+  --warn-line: #1a1a1a;
+  /* accent-ink taken to oklch(44% 0.18 25) for 7:1 on paper-2 (7.0:1). Not a
+     token: High contrast only. */
+  --danger: #9e0016;
+  --danger-soft: #f7f2e7;
+  --code-bg: #efe9d9;
+  color-scheme: light;
+}
