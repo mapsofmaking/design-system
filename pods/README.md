@@ -6,7 +6,7 @@ over the image's generic "pod" skin. In
 
 ```sh
 COMPOSE_FILE=compose.yml:/srv/mom-design-system/pods/compose.override.yml
-DESIGN_DIR=/srv/mom-design-system
+DESIGN_SYSTEM=/srv/mom-design-system
 ```
 
 Not here yet: `welcome/index.html` (Maps of Making's own welcome page) and

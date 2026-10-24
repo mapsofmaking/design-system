@@ -1,8 +1,8 @@
 # Maps of Making's look on the pod server (solid-css-overlay), mounted over
 # the image's generic "pod" skin. Loaded by /srv/mom-pods/instance-template/.env:
 #   COMPOSE_FILE=compose.yml:/srv/mom-design-system/pods/compose.override.yml
-#   DESIGN_DIR=/srv/mom-design-system
-# Paths go through ${DESIGN_DIR}: Compose resolves relative paths from the
+#   DESIGN_SYSTEM=/srv/mom-design-system
+# Paths go through ${DESIGN_SYSTEM}: Compose resolves relative paths from the
 # checkout's folder, not from this file's.
 #
 # A line stays commented until its file exists here: Compose mounts a missing
@@ -12,8 +12,8 @@
 services:
   css:
     volumes:
-      - ${DESIGN_DIR:?set DESIGN_DIR in .env}/skins/kit/skin.css:/community-server/templates/styles/skin.css:ro
-      - ${DESIGN_DIR:?set DESIGN_DIR in .env}/tokens/fonts:/community-server/templates/fonts/skin:ro
+      - ${DESIGN_SYSTEM:?set DESIGN_SYSTEM in .env}/skins/kit/skin.css:/community-server/templates/styles/skin.css:ro
+      - ${DESIGN_SYSTEM:?set DESIGN_SYSTEM in .env}/tokens/fonts:/community-server/templates/fonts/skin:ro
       # Written into the data on first start only (solid-css-overlay README,
       # "The welcome page"): pods/welcome/index.html, once it exists.
-      # - ${DESIGN_DIR:?set DESIGN_DIR in .env}/pods/welcome/index.html:/community-server/templates/root/intro/base/index.html:ro
+      # - ${DESIGN_SYSTEM:?set DESIGN_SYSTEM in .env}/pods/welcome/index.html:/community-server/templates/root/intro/base/index.html:ro
