@@ -15,3 +15,9 @@ its styles (overlay: `/.well-known/css/fonts/skin/`, backoffice:
 Open: the kit's theme button offers Dark; the skin repeats paper there
 (riso paper only). Mapping Depth instead, or hiding the button on a
 one-theme skin, is a later choice.
+
+Open: focus. The design system's focus ring is cobalt (`accent-2`, 2026-10-31),
+but the kit draws focus with `--accent`, the same slot as links and primary
+actions, which this skin sets to ink. Kit screens keep an ink ring until
+solid-kit offers a focus slot of its own (ADR 011: ask for a slot, don't
+override a component).
