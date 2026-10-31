@@ -178,4 +178,7 @@ pre.json.sp-terminal-body .n { color: var(--terminal-number); } pre.json.sp-term
    press this" and nothing else, so it carries no colour: red is for errors,
    cobalt for focus, amber is Bernard's. Pressed, it lands. */
 .btn-primary:hover, .sp-embed-btn:hover, .code .copy:hover, .bot-fab:hover { transform: translate(-1px, -1px); box-shadow: var(--shadow); }
+/* .btn:hover whitens a plain button; a primary one keeps its ink (the red
+   hover used to override it, and paper text on white vanished without). */
+.btn-primary:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 .btn-primary:active, .sp-embed-btn:active, .code .copy:active, .bot-fab:active { transform: none; box-shadow: none; }
