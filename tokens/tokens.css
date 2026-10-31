@@ -14,6 +14,7 @@
   --accent-2: oklch(55% 0.17 250);
   --accent-ink: oklch(50% 0.18 25);
   --green: oklch(60% 0.14 150);
+  --done-tint: oklch(89% 0.04 150);
   --yellow: oklch(82% 0.15 90);
   --aging-text: #a37e00;
   --aging-wash: #fff8d6;
@@ -80,6 +81,7 @@
   --accent-2: oklch(76% 0.17 250);
   --accent-ink: oklch(65% 0.19 25);
   --green: oklch(70% 0.15 148);
+  --done-tint: oklch(34% 0.05 150);
   --state-seeded: #555560;
   --state-stroke: #0d0d0f;
   --state-stroke-seeded: #3a3a42;
@@ -94,6 +96,9 @@
   --space-12: 12px;
   --space-14: 14px;
   --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
   --btn-h: 36px;
   --bernard-space-1: 0.6rem;
   --bernard-space-2: 1rem;

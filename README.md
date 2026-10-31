@@ -8,6 +8,7 @@ Decided 2026-10-24 (solid-kit ADR 011).
 | Path | What | Who reads it |
 |---|---|---|
 | `tokens/` | the tokens (`tokens.json`, `tokens.css`), the component styles (`components.css`), fonts, logos, in Maps of Making's own names (`paper`, `ink`, `rule`, `state-*`) | the map, the landing: they import them |
+| `tokens/workbench.css`, `workbench.md` | the Workbench: hex view, step panel, HexRow toolbar, TilePicto, WordChip, Copyable, Finder (`wb-`/`hx-`/`fd-`), and the rules they follow | the home app ([mom-home](https://github.com/mapsofmaking/mom-home)), which pins a commit of this repo |
 | `skins/kit/skin.css` | the same look mapped onto solid-kit's slots (`--surface`, `--text-*`, `--border`, `--accent`, ...) | every image built on solid-kit: the pods (solid-css-overlay), the backoffice |
 | `pods/` | what the pod server mounts: welcome page, `instance.json`, `compose.override.yml` | `/srv/mom-pods` |
 | `backoffice/` | what the backoffice mounts: `instance.json`, `compose.override.yml` | `/srv/mom-backoffice` |
