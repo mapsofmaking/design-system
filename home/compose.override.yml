@@ -1,0 +1,16 @@
+# Maps of Making's look on the home app's kit screens (mapsofmaking/mom-home,
+# solid-kit ADR 011). The Workbench layer is built into the image from a
+# pinned commit of this repo; only the skin is mounted. Loaded by
+# /srv/mom-home/.env:
+#   COMPOSE_FILE=docker-compose.yml:/srv/mom-design-system/home/compose.override.yml
+#   DESIGN_SYSTEM=/srv/mom-design-system
+# Paths go through ${DESIGN_SYSTEM}: Compose resolves relative paths from the
+# checkout's folder, not from this file's. A change is a commit here, then
+# `git pull` in /srv/mom-design-system and `docker compose up -d` in
+# /srv/mom-home/.
+services:
+  mom-home:
+    volumes:
+      - ${DESIGN_SYSTEM:?set DESIGN_SYSTEM in .env}/skins/kit/skin.css:/usr/share/nginx/html/skin.css:ro
+      # The skin's url("../fonts/skin/<file>") resolves to /fonts/skin/ from /skin.css.
+      - ${DESIGN_SYSTEM:?set DESIGN_SYSTEM in .env}/tokens/fonts:/usr/share/nginx/html/fonts/skin:ro
