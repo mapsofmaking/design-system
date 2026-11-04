@@ -1,6 +1,6 @@
 # Workbench
 
-The home app (`home.mapsofmaking.org`) is where a coordinator puts their space on the map and comes back to run it. Signed out, it onboards: describe your space, publish it, see it live. Signed in, the same page is the **workbench**: tiles that each open the right tool for one job. It shares the map's Daylight palette and riso language, with a calmer, roomier page layer on top. Its components are in the Workbench group: `Workbench`, `HexTile`, `HexRow` (with its toolbar variant), `TilePicto`, `WordChip`, `DoorCard`, `Field`, `Finder`, `Copyable`, `PreviewFrame`, plus `UnlockSteps` with the `.now` and `.tint` markers.
+The home app (`home.mapsofmaking.org`) is where a coordinator puts their space on the map and comes back to run it. Signed out, it onboards: describe your space, publish it, see it live. Signed in, the same page is the **workbench**: tiles that each open the right tool for one job. It shares the map's Daylight palette and riso language, with a calmer, roomier page layer on top. Its components are in the Workbench group: `Workbench`, `HexTile`, `HexRow` (with its toolbar variant), `TilePicto`, `WordChip`, `DoorCard`, `Field`, `Finder`, `Copyable`, `PreviewFrame`, `ContactPicto`, plus `UnlockSteps` with the `.now` and `.tint` markers.
 
 ## Layout
 
@@ -50,3 +50,7 @@ Each tile has two labels. The **cue** shows while the tile is still coming: it i
 - The workbench layer comes from the "Onboard Storyboard" design canvas (2026-10-30), not from shipped code: Epic 14 builds it in [mom-home](https://github.com/mapsofmaking/mom-home), which pins a commit of the design-system repo (`tokens/workbench.css`). A change goes to that repo first, then here.
 - Each workbench tile after "Publish it" becomes a mini-app with its own design. Tile C ("Update it once") is drawn in full on the storyboard and is the pattern; the others are still placeholders.
 - No Depth or Bernard's Workshop treatment for the workbench yet; `done-tint` has a Depth value for completeness only.
+
+## ContactPicto
+
+One picto per kind of contact handle, in `tokens/icons/contact.svg` (symbols `ct-<key>`): email, phone, matrix, signal, telegram, discord, mattermost, link. The keys are the handle types home writes (`onb:ContactType`) and the map card reads. 14px box, filled in `currentColor`, so `.sp-channel` colours them (ink-soft, full ink on hover). Simplified marks drawn for this system, not the services' own logos. The map and home copy the paths in; a type with no picto shows its two-letter tag, never a wrong picto.
