@@ -54,3 +54,7 @@ Each tile has two labels. The **cue** shows while the tile is still coming: it i
 ## ContactPicto
 
 One picto per kind of contact handle, in `tokens/icons/contact.svg` (symbols `ct-<key>`): email, phone, matrix, signal, telegram, discord, mattermost, link. The keys are the handle types home writes (`onb:ContactType`) and the map card reads. 14px box, filled in `currentColor`, so `.sp-channel` colours them (ink-soft, full ink on hover). Simplified marks drawn for this system, not the services' own logos. The map and home copy the paths in; a type with no picto shows its two-letter tag, never a wrong picto.
+
+## Tool
+
+Tile C on a later visit: one screen for every field of the space's file. A `Finder` on top (labels and values, grouped by section); below it two columns, the form by section on the left (`.wb-tool-form`, `.wb-tool-section` with a mono `.wb-tool-heading`) and the card as it would read on the right (`.wb-tool-side`, fixed while the form scrolls), with Save under it. Save is off until something changed, and says what: "N changes: ... The pin moves with it." A value that can be mended without loss shows a `.wb-issue.fix` (accent-2 rule) with a one-tap "Fix it"; one that can't shows `.wb-issue.problem` (accent rule) and Save waits. Contact handles are rows (`.wb-handle`): a `ContactPicto` in `.sp-channel.on`, the kind, the value, remove. On a phone the card goes under the form. Fields come from the tree, not from this layer: a new field needs no new class.
