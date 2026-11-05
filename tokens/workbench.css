@@ -144,7 +144,7 @@
 .wb-tool-file, .wb-tool-arrow { display: none; }
 .wb-page.is-folded .wb-tool-flow { grid-template-columns: minmax(0, 1fr) 16px minmax(0, 1fr); }
 .wb-page.is-folded .wb-tool-file { display: flex; flex-direction: column; gap: var(--space-8); min-width: 0; }
-.wb-page.is-folded .wb-tool-arrow { display: block; align-self: center; }
+.wb-page.is-folded .wb-tool-arrow { display: block; align-self: center; font: 600 18px/1 var(--font-mono); color: var(--muted); text-align: center; }
 .wb-tool-file pre.wb-file { max-height: 60vh; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 10.5px; }
 .wb-tool-form { gap: var(--space-20); }
 .wb-tool-section { display: flex; flex-direction: column; gap: var(--space-10); }
